@@ -1,12 +1,4 @@
-import dash_html_components as html
-import dash_core_components as dcc
-import dash
-from latent_space_visualisation import get_model, plotting, utils
-from dash.dependencies import Input, Output, State
 import numpy as np
-import tensorflow as tf
-import plotly.express as px
-import plotly.graph_objs as go
 import pandas as pd
 from PIL import Image
 
@@ -19,3 +11,17 @@ def img_arr_to_gif(img_arr, title, **kwargs):
     imgs = [Image.fromarray(img) for img in img_arr]
     imgs[0].save(f"tmp/{title}.gif", save_all=True, append_images=imgs[1:], **kwargs)
     print("Gif Saved")
+
+
+def get_background_grid(x_range, y_range, spacing):
+    x_arr, y_arr = np.arange(x_range[0], x_range[1], spacing), np.arange(
+        y_range[0], y_range[1], spacing
+    )
+    grid = np.meshgrid(x_arr, y_arr)
+    grid = np.vstack(list(map(np.ravel, grid))).T
+    return pd.DataFrame(data=grid, columns=["x", "y"])
+
+
+if __name__ == "__main__":
+    df = get_background_grid((0, 100), (0, 100), 1)
+    print(df.head())

@@ -17,3 +17,16 @@ def plot_image(arr, title):
             "title": title,
         },
     }
+
+
+def get_scatterplot(data):
+    return px.scatter(
+        data_frame=data,
+        x="ls_x",
+        y="ls_y",
+        color="y_label",
+        opacity=0.6,
+        category_orders={"y_label": np.arange(0, 10)},
+        hover_data=["index"],
+        custom_data=["index"],
+    )
