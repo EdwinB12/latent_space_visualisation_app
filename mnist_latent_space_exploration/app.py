@@ -1,7 +1,7 @@
 from dash import html
 from dash import dcc
 import dash
-from latent_space_visualisation import get_model, plotting, utils
+from mnist_latent_space_exploration import get_model, plotting, utils
 from dash.dependencies import Input, Output, State
 import numpy as np
 import tensorflow as tf
@@ -11,7 +11,7 @@ import pandas as pd
 from PIL import Image
 
 # Load model
-model = tf.keras.models.load_model("../model.pb")
+model = tf.keras.models.load_model("model.pb")
 decoder = model.get_layer("decoder")
 encoder = model.get_layer("encoder")
 

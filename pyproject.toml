@@ -3,7 +3,7 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "latent_space_visualisation"
+name = "mnist_latent_space_exploration"
 authors = [
     {name = "Edwin Brown", email = "w.edwin.brown@outlook.com"},
 ]
@@ -14,7 +14,7 @@ requires-python = ">=3.8.0"
 dynamic = ["dependencies"]
 
 [tool.setuptools]
-packages = ['latent_space_visualisation']
+packages = ['mnist_latent_space_exploration']
 
 [tool.setuptools.dynamic]
 dependencies = {file = ['requirements.txt']}

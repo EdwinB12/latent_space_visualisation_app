@@ -75,4 +75,4 @@ if __name__ == "__main__":
         x=x_train, y=x_train, epochs=10, validation_data=(x_test, x_test), batch_size=32
     )
 
-    model.save("../model.pb")
+    model.save("model.pb")
